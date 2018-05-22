@@ -4,6 +4,8 @@
   "description": "week6 challenge",
   "main": "app.js",
   "scripts": {
+    "start": "node ./bin/www",
+    "start:dev": "nodemon ./bin/www",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,8 +18,12 @@
     "url": "https://github.com/georgesykes86/MakersBnB/issues"
   },
   "dependencies": {
+    "body-parser": "*",
     "express": "*",
-    "body-parser": "*"
+    "morgan": "^1.9.0"
   },
-  "homepage": "https://github.com/georgesykes86/MakersBnB#readme"
+  "homepage": "https://github.com/georgesykes86/MakersBnB#readme",
+  "devDependencies": {
+    "nodemon": "^1.17.4"
+  }
 }
