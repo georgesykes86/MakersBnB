@@ -1,13 +1,11 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-var path = require('path');
+const express = require('express');
+const bodyParser = require('body-parser');
+const path = require('path');
 
-var app = express();
+const app = express();
 
+app.set('view engine', 'ejs');
 
-app.get('/', function(req, res) {
-  res.send('Hello World');
-})
-app.listen(3000, function() {
-  console.log('Server started at 3000')
-})
+app.get('/', (req, res) => res.render('pages/index'));
+
+module.exports = app;
