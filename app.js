@@ -3,11 +3,16 @@ const bodyParser = require('body-parser');
 const path = require('path');
 
 const app = express();
+var i = 2;
 
 var listings = {
-  2: {
+  1: {
     name: "sam",
-    email: "sam@gmail.com"
+    email: "sam@gmail.com",
+    phone: 07786099392,
+    title: "Playboy mansion",
+    description: "My first listing",
+    price: 50
       }
 };
 
@@ -28,7 +33,8 @@ app.post('/listings/new', function(req, res) {
     description: req.body.description,
     price: req.body.price
   }
-  listings[1]=listing;
+  listings[i]=listing;
+  i++;
   res.redirect('/');
 });
 

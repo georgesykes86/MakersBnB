@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #eafff0;
+}
+
+.listing_container {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.listing {
+  border: solid 2px blue;
+  border-radius: 2%;
+}
