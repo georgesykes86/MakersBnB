@@ -21,7 +21,10 @@
     "body-parser": "*",
     "ejs": "^2.6.1",
     "express": "*",
-    "morgan": "^1.9.0"
+    "morgan": "^1.9.0",
+    "pg": "^7.4.3",
+    "pg-hstore": "*",
+    "sequelize": "^4.37.8"
   },
   "homepage": "https://github.com/georgesykes86/MakersBnB#readme",
   "devDependencies": {
