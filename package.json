@@ -16,8 +16,11 @@
     "url": "https://github.com/georgesykes86/MakersBnB/issues"
   },
   "dependencies": {
+    "body-parser": "*",
     "express": "*",
-    "body-parser": "*"
+    "pg": "^7.4.3",
+    "pg-hstore": "*",
+    "sequelize": "^4.37.8"
   },
   "homepage": "https://github.com/georgesykes86/MakersBnB#readme"
 }
