@@ -4,13 +4,16 @@ const path = require('path');
 
 const app = express();
 
-var listings = {};
+var listings = {
+  2: {
+    name: "sam",
+    email: "sam@gmail.com"
+      }
+};
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(express.json());
-// app.use(express.urlencoded());
-
+app.use(express.static('public'))
 
 app.set('view engine', 'ejs');
 
