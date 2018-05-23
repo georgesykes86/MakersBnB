@@ -1,5 +1,10 @@
 $(function(){
 
+  $('#mdp').multiDatesPicker({
+    minDate: 0, // today
+    maxDate: 360 // +30 days from today
+  });
+
   var listings = $.getJSON("http://localhost:8000/listings", function(data){
     var i = 0;
     $.each(data, function(k,v){
