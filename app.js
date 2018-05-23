@@ -21,7 +21,8 @@ app.post('/listings/new', function(req, res) {
     phone: req.body.phone,
     title: req.body.title,
     description: req.body.description,
-    price: req.body.price
+    price: req.body.price,
+    dates: req.body.dates
   }
   listings.push(listing);
   res.redirect('/');
