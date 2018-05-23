@@ -35,6 +35,6 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 module.exports = db;
-
-db.Users.hasMany(db.Listings)
-db.Listings.belongsTo(db.Users)
+// 
+// db.Users.hasMany(db.Listings)
+// db.Listings.belongsTo(db.Users)

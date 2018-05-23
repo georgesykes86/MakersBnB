@@ -24,10 +24,14 @@ module.exports = (sequelize, DataTypes) => {
 
     user_id: {
       type: DataTypes.INTEGER,
-
-  }, {});
+    references: {
+      model: 'user',
+      key: 'id'
+    }
+  },
+  {});
   Listing.associate = function(models) {
-    // associations can be defined here
+    Listing.belongsTo(models.user);
   };
   return Listing;
 };

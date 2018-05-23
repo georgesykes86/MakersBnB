@@ -11,7 +11,6 @@ module.exports = {
         phone_nr: '07123457890'
 
       }], {});
-
   },
 
   down: (queryInterface, Sequelize) => {
