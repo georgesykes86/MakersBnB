@@ -6,7 +6,6 @@ module.exports = (app) => {
 
   app.post('/listings/new', (req, res) => {
     let updatedb = async function(){
-      console.log("creating user")
     usersController.create(req, res)
       .then(function(user){
         req.body["user_id"] = user.dataValues.id
@@ -17,5 +16,5 @@ module.exports = (app) => {
   updatedb();
   });
 
-  app.get('/listings', (req, res) => listingsController.findAll(req,res));
+  app.get('/listings', listingsController.findWithUser );
 }

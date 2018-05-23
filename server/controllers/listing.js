@@ -7,7 +7,7 @@ module.exports = {
         title: req.body.title,
         description: req.body.description,
         price: req.body.price,
-        user_id: req.body.user_id, 
+        user_id: req.body.user_id,
       })
       .then(listing => console.log(listing))
       .catch(error => console.log(error));
@@ -16,7 +16,16 @@ module.exports = {
   findAll(req, res) {
     return Listing
       .findAll()
-      .then(listings => res.status(200).send(listings))
+      .then(listings => { return listings })
       .catch(error => console.log(error));
+  },
+
+  findWithUser(req, res) {
+    return Listing
+    .findAll({
+      include: [User]
+    })
+    .then(listings => res.status(200).send(listings))
+    .catch(error => console.log(error));
   }
 };

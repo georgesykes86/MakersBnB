@@ -4,8 +4,6 @@ const path = require('path');
 
 const app = express();
 
-var listings = []
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'))
