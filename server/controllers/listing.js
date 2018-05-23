@@ -22,10 +22,10 @@ module.exports = {
 
   findWithUser(req, res) {
     return Listing
-    .findAll({
-      include: [User]
-    })
-    .then(listings => res.status(200).send(listings))
-    .catch(error => console.log(error));
+      .findAll({
+        include: [ { model: Users } ]
+      })
+      .then(listings => res.status(200).send(listings))
+      .catch(error => console.log(error));
   }
 };
