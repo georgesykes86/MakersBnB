@@ -1,4 +1,5 @@
 const Listing = require('../models').Listing;
+const User = require('../models').User;
 
 module.exports = {
   create(req, res) {
@@ -23,7 +24,9 @@ module.exports = {
   findWithUser(req, res) {
     return Listing
       .findAll({
-        include: [ { model: Users } ]
+        include: [{
+          model: User,
+        }],
       })
       .then(listings => res.status(200).send(listings))
       .catch(error => console.log(error));

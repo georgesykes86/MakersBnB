@@ -14,9 +14,9 @@ $(function(){
       $(".row").last().append(
         `<div class='listing_container col-6'>
           <div class='listing'>
-            <p>${v.name}</p>
-            <p>${v.email}</p>
-            <p>${v.phone}</p>
+            <p>${v.User.name}</p>
+            <p>${v.User.email}</p>
+            <p>${v.User.phone_nr}</p>
             <p>${v.title}</p>
             <p>${v.description}</p>
             <p>£${v.price}pn</p>
