@@ -3,14 +3,22 @@ const bodyParser = require('body-parser');
 const path = require('path');
 
 const app = express();
+var i = 2;
 
-var listings = {};
+var listings = {
+  1: {
+    name: "sam",
+    email: "sam@gmail.com",
+    phone: 07786099392,
+    title: "Playboy mansion",
+    description: "My first listing",
+    price: 50
+      }
+};
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(express.json());
-// app.use(express.urlencoded());
-
+app.use(express.static('public'))
 
 app.set('view engine', 'ejs');
 
@@ -25,7 +33,8 @@ app.post('/listings/new', function(req, res) {
     description: req.body.description,
     price: req.body.price
   }
-  listings[1]=listing;
+  listings[i]=listing;
+  i++;
   res.redirect('/');
 });
 
