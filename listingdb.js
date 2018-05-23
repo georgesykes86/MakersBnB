@@ -17,3 +17,4 @@ var res = {
 console.log(res.status)
 
 listingdb.create(req, res)
+listingdb.findAll(req, res)

@@ -12,4 +12,11 @@ module.exports = {
       .then(listing => console.log("success"))
       .catch(error => console.log(error));
   },
+
+  findAll(req, res) {
+    return Listing
+      .findAll()
+      .then(listing => console.log(listing))
+      .catch(error => console.log(error));
+  }
 };

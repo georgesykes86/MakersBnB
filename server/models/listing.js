@@ -33,8 +33,11 @@ module.exports = (sequelize, DataTypes) => {
     }
   },
 });
-  Listing.associate = function(models) {
-    Listing.belongsTo(models.User);
+  Listing.associate = (models) => {
+    Listing.belongsTo(models.User, {
+      foreignKey: "user_id",
+      onDelete: 'CASCADE'
+    });
   };
   return Listing;
 };
