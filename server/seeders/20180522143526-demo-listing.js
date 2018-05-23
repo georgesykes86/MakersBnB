@@ -6,7 +6,9 @@ module.exports = {
       return queryInterface.bulkInsert('Listings', [{
         title: 'Simply stunning period apartment',
         description: 'this property is incredile',
-        price: 4000
+        price: 4000,
+        createdAt: new Date,
+        updatedAt: new Date
       }], {});
 
   },

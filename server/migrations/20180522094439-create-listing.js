@@ -23,12 +23,13 @@ module.exports = {
 
       },
       createdAt: {
-        allowNull: true,
-        type: Sequelize.DATE
+        allowNull: false,
+        type: Sequelize.DATE,
+        
       },
       updatedAt: {
-        allowNull: true,
-        type: Sequelize.DATE
+        allowNull: false,
+        type: Sequelize.DATE,
       }
     });
   },

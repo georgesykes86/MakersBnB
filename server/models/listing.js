@@ -2,15 +2,16 @@
 module.exports = (sequelize, DataTypes) => {
   var Listing = sequelize.define('Listing', {
     id: {
-      type: DataTypes.SERIAL,
+      allowNull: false,
+      autoIncrement: true,
       primaryKey: true,
-      autoIncrement: true
+      type: DataTypes.INTEGER
     },
 
     title: {
       type: DataTypes.STRING,
       notNull: true
-    }
+    },
 
     description: {
       type: DataTypes.TEXT,
@@ -24,14 +25,16 @@ module.exports = (sequelize, DataTypes) => {
 
     user_id: {
       type: DataTypes.INTEGER,
+      onDelete: 'CASCADE',
     references: {
       model: 'user',
-      key: 'id'
+      key: 'id',
+      as: 'user_id',
     }
   },
-  {});
+});
   Listing.associate = function(models) {
-    Listing.belongsTo(models.user);
+    Listing.belongsTo(models.User);
   };
   return Listing;
 };

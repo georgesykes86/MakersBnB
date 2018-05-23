@@ -8,7 +8,9 @@ module.exports = {
 
         name: 'John Doe',
         email: 'john.doe@email.com',
-        phone_nr: '07123457890'
+        phone_nr: '07123457890',
+        createdAt: new Date,
+        updatedAt: new Date
 
       }], {});
   },
