@@ -9,14 +9,14 @@ module.exports = {
         price: req.body.price,
         user_id: 1
       })
-      .then(listing => console.log("success"))
+      .then(listing => console.log(listing))
       .catch(error => console.log(error));
   },
 
   findAll(req, res) {
     return Listing
       .findAll()
-      .then(listing => console.log(listing))
+      .then(listings => res.status(200).send(listings))
       .catch(error => console.log(error));
   }
 };
