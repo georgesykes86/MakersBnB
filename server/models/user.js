@@ -2,9 +2,10 @@
 module.exports = (sequelize, DataTypes) => {
   var User = sequelize.define('User', {
     id: {
-      type: DataTypes.SERIAL,
+      allowNull: false,
+      autoIncrement: true,
       primaryKey: true,
-      autoIncrement: true
+      type: DataTypes.INTEGER
     },
 
     name: {
@@ -24,7 +25,10 @@ module.exports = (sequelize, DataTypes) => {
 
   }, {});
   User.associate = function(models) {
-    // associations can be defined here
+    User.hasMany(models.Listing, {
+      foreignKey: "user_id",
+      onDelete: 'CASCADE'
+    });
   };
   return User;
 };

@@ -1,14 +1,43 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var Listing = sequelize.define('Listing', {
-    id: DataTypes.INTEGER,
-    title: DataTypes.STRING,
-    description: DataTypes.TEXT,
-    price: DataTypes.INTEGER,
-    user_id: DataTypes.INTEGER
-  }, {});
-  Listing.associate = function(models) {
-    // associations can be defined here
+    id: {
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+      type: DataTypes.INTEGER
+    },
+
+    title: {
+      type: DataTypes.STRING,
+      notNull: true
+    },
+
+    description: {
+      type: DataTypes.TEXT,
+      notNull: true
+    },
+
+    price: {
+      type: DataTypes.INTEGER,
+      notNull: true
+    },
+
+    user_id: {
+      type: DataTypes.INTEGER,
+      onDelete: 'CASCADE',
+    references: {
+      model: 'user',
+      key: 'id',
+      as: 'user_id',
+    }
+  },
+});
+  Listing.associate = (models) => {
+    Listing.belongsTo(models.User, {
+      foreignKey: "user_id",
+      onDelete: 'CASCADE'
+    });
   };
   return Listing;
 };
