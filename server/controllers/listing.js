@@ -7,7 +7,7 @@ module.exports = {
         title: req.body.title,
         description: req.body.description,
         price: req.body.price,
-        user_id: 1
+        user_id: req.body.user_id, 
       })
       .then(listing => console.log(listing))
       .catch(error => console.log(error));

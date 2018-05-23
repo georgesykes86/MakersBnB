@@ -8,7 +8,9 @@ module.exports = (app) => {
     let updatedb = async function(){
       console.log("creating user")
     usersController.create(req, res)
-      .then(function(user){ console.log("creating listing")
+      .then(function(user){
+        req.body["user_id"] = user.dataValues.id
+        console.log("creating listing")
       listingsController.create(req, res)})
   }
   console.log("updating records")
