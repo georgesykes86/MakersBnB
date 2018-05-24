@@ -8,7 +8,14 @@ module.exports = {
       email: req.body.email,
       phone_nr: req.body.phone,
     })
-    .then(user => console.log("success"))
+    .then(user => {return user})
     .catch(error => console.log(error));
   },
+
+  retrieve(req, res) {
+    return User
+      .findById()
+      .then(user => res.status(200).send(user))
+      .catch(error => console.log(error));
+  }
 };
