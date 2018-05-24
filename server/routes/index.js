@@ -2,8 +2,30 @@ const usersController = require('../controllers').users;
 const listingsController = require('../controllers').listings;
 
 module.exports = (app) => {
-  app.get('/user/:id', (req, res) =>
-   res.render('pages/index', { username: req.session.username}));
+
+  app.get('/', (req,res) => {
+    if (req.session.id) {
+      res.redirect(`/users/${req.session.id}`)
+    } else {
+      res.redirect('/sessions/new')
+    }
+  });
+
+  app.get('/users/:id', (req, res) => {
+    if (req.session.user_id) {
+      res.render('pages/index', { username: req.session.username})
+    } else {
+      res.redirect('/sessions/new')
+    }
+  });
+
+  app.post('/users/new', (req, res) => {
+    if (req.session.user_id) {
+      res.render('pages/index', { username: req.session.username})
+    } else {
+      res.redirect('/sessions/new')
+    }
+  });
 
   app.post('/listings/new', async function(req, res){
     let updatedb = async function(){
@@ -24,21 +46,19 @@ module.exports = (app) => {
 
   app.post('/session', async function(req, res){
     let users = await usersController.findByEmail(req, res)
-    console.log(users)
     if (users.length > 0){
       var user = users[0].dataValues
       if (user.password === req.body.log_password) {
-        req.session.username = user.name
-        req.session.id = user.id
-        res.redirect('/user/${user.id}')
+        req.session.username = user.name;
+        req.session.user_id = user.id;
+        res.redirect(`/users/${user.id}`)
       } else{
-          console.log("wrong password")
+        req.flash('error', 'Incorrect password')
+        res.redirect('/sessions/new')
       }
     } else {
-      req.flash('error', 'no username')
-      console.log("hitting error")
+      req.flash('error', 'Not a valid email')
       res.redirect('/sessions/new')
     }
-
   });
 }

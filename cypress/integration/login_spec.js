@@ -15,6 +15,6 @@ var url = "http://localhost:8000/sessions/new"
     cy.get('input[name=log_mail]').type('jane.dont@email.com')
     cy.get('input[name=log_password]').type('1324')
     cy.get('button[name=login]').click()
-    cy.get('.errors').should('contain', 'no username')
+    cy.get('.errors').should('contain', 'Not a valid email')
   })
 });
