@@ -7,9 +7,10 @@ module.exports = {
       name: req.body.name,
       email: req.body.email,
       phone_nr: req.body.phone,
+      password: req.body.password,
     })
-    .then(user => {return user})
-    .catch(error => console.log(error));
+    .then(user => { return user })
+    .catch(error => { return false });
   },
 
   retrieve(req, res) {
@@ -21,12 +22,12 @@ module.exports = {
 
   findByEmail(req, res) {
     return User
-    .findAll({
+    .findOne({
       where: {
-        email: req.body.log_mail
+        email: req.body.email
       }
     })
-    .then(user => {return user})
-    .catch(error => {return false});
+    .then(user => { return user })
+    .catch(error => { return false });
   }
 };

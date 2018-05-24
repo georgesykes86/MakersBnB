@@ -19,11 +19,31 @@ module.exports = (app) => {
     }
   });
 
-  app.post('/users/new', (req, res) => {
-    if (req.session.user_id) {
-      res.render('pages/index', { username: req.session.username})
+  app.post('/users', async function(req, res){
+    if(req.body.password.length < 4){
+      req.flash('error', 'Password not long enough')
+      return res.redirect('/sessions/new')
+    }
+    if(req.body.password !== req.body.conf_password) {
+      req.flash('error', 'Passwords do not match')
+      return res.redirect('/sessions/new')
+    }
+    let user = await usersController.findByEmail(req, res)
+    if (user){
+      req.flash('error', 'Email already registered')
+      return res.redirect('/sessions/new')
     } else {
-      res.redirect('/sessions/new')
+      usersController.create(req, res)
+        .then(user => {
+          if (user){
+            req.session.username = user.dataValues.name;
+            req.session.user_id = user.dataValues.id;
+            res.redirect(`/users/${user.id}`)
+          } else {
+            req.flash('error', 'Database problem please try again')
+            res.redirect('/sessions/new')
+          }
+        })
     }
   });
 
@@ -41,13 +61,16 @@ module.exports = (app) => {
   app.get('/listings', listingsController.findWithUser );
 
   app.get('/sessions/new', (req, res) => {
-    res.render('pages/login', { message: req.flash('error' )})
+    if (req.session.user_id) {
+      res.redirect(`/users/${req.session.id}`)
+    } else {
+      res.render('pages/login', { message: (req.flash('error') || null) })
+    }
   });
 
-  app.post('/session', async function(req, res){
-    let users = await usersController.findByEmail(req, res)
-    if (users.length > 0){
-      var user = users[0].dataValues
+  app.post('/sessions', async function(req, res){
+    let user = await usersController.findByEmail(req, res)
+    if (user){
       if (user.password === req.body.log_password) {
         req.session.username = user.name;
         req.session.user_id = user.id;
