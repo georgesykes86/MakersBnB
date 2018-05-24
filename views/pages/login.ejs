@@ -7,9 +7,11 @@
      <% include ../partials/header %>
    </header>
    <main>
+     <div class="errors">
+       <%= message ? message : '' %>
+     </div>
      <div class="container-fluid">
        <form action='/session' method="post">
-         <label for="log_mail">e-mail address</label>
          <div class="form-group">
            <label for="log_mail">e-mail address</label>
            <input type="email" class="form-control" name="log_mail" placeholder="e.g. mail@mail.com" required>
