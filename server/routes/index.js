@@ -14,6 +14,7 @@ module.exports = (app) => {
   }
   console.log("updating records")
   updatedb();
+  res.redirect('/')
   });
 
   app.get('/listings', listingsController.findWithUser );
