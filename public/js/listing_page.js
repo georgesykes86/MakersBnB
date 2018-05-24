@@ -1,6 +1,8 @@
 $(function(){
 
   $('#mdp').multiDatesPicker({
+    dateFormat: "dd-mm-yy",
+
     minDate: 0, // today
     maxDate: 360 // +30 days from today
   });
@@ -20,6 +22,7 @@ $(function(){
             <p>${v.title}</p>
             <p>${v.description}</p>
             <p>£${v.price}pn</p>
+            <p>${v.dates}</p>
           </div>
         </div>`
       );

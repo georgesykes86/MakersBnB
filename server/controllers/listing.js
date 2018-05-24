@@ -8,6 +8,7 @@ module.exports = {
         title: req.body.title,
         description: req.body.description,
         price: req.body.price,
+        dates: req.body.dates,
         user_id: req.body.user_id,
       })
       .then(listing => console.log(listing))

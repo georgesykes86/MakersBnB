@@ -18,6 +18,11 @@ module.exports = {
       price: {
         type: Sequelize.INTEGER
       },
+
+      dates: {
+        type: Sequelize.STRING
+      },
+
       user_id: {
         type: Sequelize.INTEGER,
 
@@ -25,7 +30,7 @@ module.exports = {
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
-        
+
       },
       updatedAt: {
         allowNull: false,
