@@ -23,10 +23,11 @@ module.exports = (app) => {
     let users = await usersController.findByEmail(req, res)
     console.log(users)
     if (users){
-      console.log("found a user")
-      if (users[0].dataValues.password === req.body.log_password) {
+      var user = users[0].dataValues
+      if (user.password === req.body.log_password) {
           console.log("found a password")
-        res.status(200).redirect('/')
+          var username = user.name
+        res.status(200).render('pages/index', { username: username })
       } else{
           console.log("wrong password")
       }
