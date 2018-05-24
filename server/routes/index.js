@@ -4,17 +4,15 @@ const listingsController = require('../controllers').listings;
 module.exports = (app) => {
   app.get('/', (req, res) => res.render('pages/index'));
 
-  app.post('/listings/new', (req, res) => {
+  app.post('/listings/new', async function(req, res){
     let updatedb = async function(){
     usersController.create(req, res)
-      .then(function(user){
+      .then(async function(user){
         req.body["user_id"] = user.dataValues.id
-        console.log("creating listing")
-      listingsController.create(req, res)})
-  }
-  console.log("updating records")
-  updatedb();
-  res.redirect('/')
+        await listingsController.create(req, res)})
+      }
+   await updatedb();
+   res.redirect('/')
   });
 
   app.get('/listings', listingsController.findWithUser );
