@@ -1,0 +1,26 @@
+<html lang="en" dir="ltr">
+ <head>
+   <% include ../partials/head %>
+ </head>
+ <body>
+   <header>
+     <% include ../partials/header %>
+   </header>
+   <main>
+     <div class="container-fluid">
+       <form action='/session' method="post">
+         <label for="log_mail">e-mail address</label>
+         <div class="form-group">
+           <label for="log_mail">e-mail address</label>
+           <input type="email" class="form-control" name="log_mail" placeholder="e.g. mail@mail.com" required>
+         </div>
+         <div class="form-group">
+           <label for="log_password">Password</label>
+           <input type="password" class="form-control" name="log_password" required>
+         </div>
+          <button type="submit" class="btn btn-primary" name="login">login</button>
+       </form>
+   </main>
+   <footer><% include ../partials/footer %></footer>
+ </body>
+</html>

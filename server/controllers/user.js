@@ -17,5 +17,16 @@ module.exports = {
       .findById()
       .then(user => res.status(200).send(user))
       .catch(error => console.log(error));
+  },
+
+  findByEmail(req, res) {
+    return User
+    .findAll({
+      where: {
+        email: req.body.log_mail
+      }
+    })
+    .then(user => {return user})
+    .catch(error => {return false});
   }
 };
