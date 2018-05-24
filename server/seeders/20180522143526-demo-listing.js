@@ -7,7 +7,7 @@ module.exports = {
         title: 'Simply stunning period apartment',
         description: 'this property is incredile',
         price: 4000,
-        dates: new Date,
+        dates: "24-05-2018",
         user_id: 1,
         createdAt: new Date,
         updatedAt: new Date

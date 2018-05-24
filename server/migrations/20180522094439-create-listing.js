@@ -20,7 +20,7 @@ module.exports = {
       },
 
       dates: {
-        type: Sequelize.DATEONLY
+        type: Sequelize.STRING
       },
 
       user_id: {
