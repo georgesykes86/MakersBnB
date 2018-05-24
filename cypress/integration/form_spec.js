@@ -9,7 +9,7 @@ describe('listing input form', function (){
     cy.get('textarea[name=description]').type('my first listing')
     cy.get('input[name=price]').type(500)
     cy.get('#mdp').click()
-    cy.get('.ui-datepicker-header table tr:last td:last').click()
+    cy.contains('25').click()
     cy.get('input[name=name]').click()
     cy.get('button').click()
     cy.get('.listing:last p').should(($ps) => {
@@ -20,7 +20,7 @@ describe('listing input form', function (){
       expect($ps.eq(3)).to.contain('Hollywood Mansion')
       expect($ps.eq(4)).to.contain('my first listing')
       expect($ps.eq(5)).to.contain(500)
-      expect($ps.eq(6)).to.contain("23-05-2018")
+      expect($ps.eq(6)).to.contain("25-05-2018")
     })
   })
 });
