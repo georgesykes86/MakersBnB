@@ -21,6 +21,11 @@ module.exports = (sequelize, DataTypes) => {
     phone_nr: {
       type: DataTypes.NUMERIC,
       primaryKey: true
+    },
+
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false
     }
 
   }, {});
