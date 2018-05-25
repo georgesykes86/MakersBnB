@@ -4,11 +4,6 @@
   box-sizing: border-box;
 }
 
-body {
-  background-color: #eafff0;
-  color: white;
-}
-
 .listing_container {
   margin-top: 15px;
   margin-bottom: 15px;
@@ -42,8 +37,20 @@ h1 {
 input {
   background-color: transparent;
 }
+
+input:hover {
+  background-color: #fff;
+}
+
 .form-control {
   background-color: transparent;
+}
+
+.main {
+  background: url("https://camo.envatousercontent.com/3b53d2ce4e67c81c8196684bd6ce384ca7f5d458/687474703a2f2f692e696d6775722e636f6d2f6b4c674641566a2e6a7067");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
 }
 
 .main div {
@@ -76,6 +83,7 @@ input {
 .login input{
   background-color: white;
 }
+
 label {
   font-weight: bold;
 }
@@ -86,6 +94,7 @@ background-repeat: no-repeat;
 background-size: cover;
 font-family: eater;
 font-size: 25px;
+color: #fff;
 }
 
 .annoying-text {

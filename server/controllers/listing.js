@@ -27,7 +27,10 @@ module.exports = {
       .findOne({
         where: {
           id: req.params.id
-        }
+        },
+        include: [{
+          model: User,
+        }]
       })
       .then(listing => {return listing})
       .catch(error => {return false});
