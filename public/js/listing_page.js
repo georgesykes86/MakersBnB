@@ -30,4 +30,11 @@ $(function(){
       });
   });
 
+
+   $("#logout").click(function(){
+     $.post("http://localhost:8000/logout", function(data) {
+       window.location.href = data.redirect
+     })
+   });
+
 });

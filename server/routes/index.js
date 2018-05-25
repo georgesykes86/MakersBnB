@@ -4,8 +4,8 @@ const listingsController = require('../controllers').listings;
 module.exports = (app) => {
 
   app.get('/', (req,res) => {
-    if (req.session.id) {
-      res.redirect(`/users/${req.session.id}`)
+    if (req.session.user_id) {
+      res.redirect(`/users/${req.session.user_id}`)
     } else {
       res.redirect('/sessions/new')
     }
@@ -38,7 +38,7 @@ module.exports = (app) => {
           if (user){
             req.session.username = user.dataValues.name;
             req.session.user_id = user.dataValues.id;
-            res.redirect(`/users/${user.id}`)
+            res.redirect(`/users/${req.session.user_id}`)
           } else {
             req.flash('error', 'Database problem please try again')
             res.redirect('/sessions/new')
@@ -56,7 +56,7 @@ module.exports = (app) => {
 
   app.get('/sessions/new', (req, res) => {
     if (req.session.user_id) {
-      res.redirect(`/users/${req.session.id}`)
+      res.redirect(`/users/${req.session.user_id}`)
     } else {
       res.render('pages/login', { message: (req.flash('error') || null) })
     }
@@ -68,7 +68,7 @@ module.exports = (app) => {
       if (user.password === req.body.log_password) {
         req.session.username = user.name;
         req.session.user_id = user.id;
-        res.redirect(`/users/${user.id}`)
+        res.redirect(`/users/${req.session.user_id}`)
       } else{
         req.flash('error', 'Incorrect password')
         res.redirect('/sessions/new')
@@ -77,5 +77,12 @@ module.exports = (app) => {
       req.flash('error', 'Not a valid email')
       res.redirect('/sessions/new')
     }
+  });
+
+  app.post('/logout', (req, res) => {
+    console.log("request")
+    req.session.destroy();
+    console.log("response")
+    res.redirect(302, '/sessions/new')
   });
 }
