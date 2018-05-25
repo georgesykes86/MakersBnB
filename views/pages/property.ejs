@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <% include ../partials/head %>
-  </head>
-  <body>
 
-  <div class="container">
-    <h5><%= my_listing.dataValues.title %><h5>
+<header>
+  <% include ../partials/head %>
+</header>
+<h1 class="text-center">Choose your lair</h1>
+  <body class="property_page">
+
+  <div class="text-center">
+    <div class="annoying-text">
+    <h5><%= my_listing.dataValues.title %></h5>
     <div><%= my_listing.dataValues.description %></div>
     <p>£ <%= my_listing.dataValues.price %></p>
     <p>Available: <%= my_listing.dataValues.dates %></p>
+  </div>
   </div>
 
 
