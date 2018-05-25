@@ -1,0 +1,57 @@
+<html lang="en" dir="ltr">
+ <head>
+   <title>Login</title>
+   <% include ../partials/head %>
+ </head>
+ <body>
+   <header>
+     <% include ../partials/header %>
+   </header>
+   <main>
+      <div class="container-fluid">
+         <div class="container-fluid col-4" id="login_form">
+           <form action='/sessions' method="post">
+             <div class="form-group">
+               <label for="email">Email address</label>
+               <input type="email" class="form-control" name="email" id="log_mail" placeholder="e.g. mail@mail.com" required>
+             </div>
+             <div class="form-group">
+               <label for="log_password">Password</label>
+               <input type="password" class="form-control" name="log_password" required>
+             </div>
+              <button type="submit" class="btn btn-primary" name="login">Login</button>
+           </form>
+         </div>
+         <div class="container-fluid col-4" id="register_form">
+          <form action='/users' method="post">
+             <div class="form-group">
+               <label for="name">Name</label>
+               <input type="text" class="form-control" name="name" placeholder="e.g. John Smith" required>
+             </div>
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" class="form-control" name="email" id="reg_mail" placeholder="e.g. mail@mail.com" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="text" class="input-medium bfh-phone" name="phone" data-format="+44 ddd-dddd-ddd" required>
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" name="password" required>
+            </div>
+            <div class="form-group">
+              <label for="conf_password">Confirm Password</label>
+              <input type="password" class="form-control" name="conf_password" required>
+            </div>
+             <button type="submit" class="btn btn-primary" name="register">Register</button>
+          </form>
+         </div>
+      </div>
+      <div class="errors">
+       <%= message ? message : '' %>
+      </div>
+   </main>
+   <footer><% include ../partials/footer %></footer>
+ </body>
+</html>

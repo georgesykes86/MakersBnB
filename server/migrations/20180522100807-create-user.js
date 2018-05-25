@@ -24,17 +24,13 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
+      },
+
+      password: {
+        type: Sequelize.STRING,
+        allowNull: false
       }
-      // createdAt: {
-      //   allowNull: false,
-      //   type: Sequelize.DATE,
-      //   defaultValue: sequelize.fn('NOW')
-      // },
-      // updatedAt: {
-      //   allowNull: false,
-      //   type: Sequelize.DATE,
-      //   defaultValue: sequelize.fn('NOW')
-      // }
+
     });
   },
   down: (queryInterface, Sequelize) => {
