@@ -16,4 +16,14 @@ module.exports = (app) => {
   });
 
   app.get('/listings', listingsController.findWithUser );
+
+  app.get('/property/:id', async function(req, res) {
+    let listing = await listingsController.findListing(req, res)
+    if(listing){
+      console.log(listing)
+      return res.render('pages/property', { my_listing: listing })
+    } else {
+      redirect('/')
+    }
+  });
 }

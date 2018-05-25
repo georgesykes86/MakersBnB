@@ -17,3 +17,14 @@ body {
   border: solid 2px blue;
   border-radius: 2%;
 }
+
+a:link {
+  color: green;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+h1 {
+  font-family: nosifer;
+  color: rgb(122, 22, 37);
+}

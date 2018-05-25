@@ -15,7 +15,7 @@ $(function(){
       }
       $(".row").last().append(
         `<div class='listing_container col-6'>
-          <div class='listing'>
+          <div class='listing'><a href='/property/${v.id}'>
             <p>${v.User.name}</p>
             <p>${v.User.email}</p>
             <p>${v.User.phone_nr}</p>
@@ -23,6 +23,7 @@ $(function(){
             <p>${v.description}</p>
             <p>£${v.price}pn</p>
             <p>${v.dates}</p>
+            </a>
           </div>
         </div>`
       );
