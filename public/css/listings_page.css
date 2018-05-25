@@ -18,6 +18,17 @@ body {
   border-radius: 2%;
 }
 
+a:link {
+  color: green;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+h1 {
+  font-family: nosifer;
+  color: rgb(122, 22, 37);
+}
+
 #login_form{
   margin-top: 50px;
   margin-bottom: 40px;

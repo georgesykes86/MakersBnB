@@ -22,6 +22,17 @@ module.exports = {
       .catch(error => console.log(error));
   },
 
+  findListing(req, res) {
+    return Listing
+      .findOne({
+        where: {
+          id: req.params.id
+        }
+      })
+      .then(listing => {return listing})
+      .catch(error => {return false});
+  },
+
   findWithUser(req, res) {
     return Listing
       .findAll({

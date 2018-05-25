@@ -54,6 +54,17 @@ module.exports = (app) => {
 
   app.get('/listings', listingsController.findWithUser );
 
+
+  app.get('/property/:id', async function(req, res) {
+    let listing = await listingsController.findListing(req, res)
+    if(listing){
+      console.log(listing)
+      return res.render('pages/property', { my_listing: listing })
+    } else {
+      redirect('/')
+    }
+  });
+
   app.get('/sessions/new', (req, res) => {
     if (req.session.user_id) {
       res.redirect(`/users/${req.session.user_id}`)
@@ -85,4 +96,5 @@ module.exports = (app) => {
     console.log("response")
     res.redirect(302, '/sessions/new')
   });
+
 }
