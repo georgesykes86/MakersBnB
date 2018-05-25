@@ -25,11 +25,11 @@ module.exports = {
   findListing(req, res) {
     return Listing
       .findOne({
-        include: [{
-          model:User,
         where: {
           id: req.params.id
-        }
+        },
+        include: [{
+          model: User,
         }]
       })
       .then(listing => {return listing})
