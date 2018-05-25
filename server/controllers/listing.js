@@ -9,7 +9,7 @@ module.exports = {
         description: req.body.description,
         price: req.body.price,
         dates: req.body.dates,
-        user_id: req.body.user_id,
+        user_id: req.session.user_id,
       })
       .then(listing => {return true})
       .catch(error => {return false});

@@ -48,14 +48,8 @@ module.exports = (app) => {
   });
 
   app.post('/listings/new', async function(req, res){
-    let updatedb = async function(){
-    usersController.create(req, res)
-      .then(async function(user){
-        req.body["user_id"] = user.dataValues.id
-        await listingsController.create(req, res)})
-      }
-   await updatedb();
-   res.redirect('/')
+    listingsController.create(req, res)
+      .then(listing => res.redirect('/'))
   });
 
   app.get('/listings', listingsController.findWithUser );
