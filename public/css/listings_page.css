@@ -17,6 +17,8 @@ body {
 .listing {
   border: solid 2px white;
   border-radius: 2%;
+  background: black;
+  opacity: 0.6;
 }
 
 a:link {
@@ -44,9 +46,10 @@ input {
   background-color: transparent;
 }
 
-div {
+.main div {
   font-family: eater;
 }
+
 
 .btn-primary {
     color: #fff;
@@ -70,7 +73,9 @@ div {
   border: 2px solid black;
   border-radius: 2%;
 }
-
+.login input{
+  background-color: white;
+}
 label {
   font-weight: bold;
 }
@@ -79,6 +84,8 @@ label {
 background: url("https://camo.envatousercontent.com/d1f4420d4adae93c92ee24d6d964b34acc56b5f0/687474703a2f2f692e696d6775722e636f6d2f78546f6b5359712e6a7067");
 background-repeat: no-repeat;
 background-size: cover;
+font-family: eater;
+font-size: 25px;
 }
 
 .annoying-text {
@@ -86,6 +93,7 @@ background-size: cover;
 }
 
 .login {
+  font-family: 'Indie Flower', cursive;
   background: url("http://www.travelabuzz.com/wp-content/gallery/most-amazing-beaches/phi-phi-thailand-2.jpg");
   background-repeat: no-repeat;
   background-size: cover;
